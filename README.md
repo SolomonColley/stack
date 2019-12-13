@@ -1,2 +1,2 @@
 # stack
-An implementation of a stack abstract data structure (ADT).
+An implementation of a stack abstract data type (ADT).
