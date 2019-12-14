@@ -21,7 +21,7 @@ public:
 	/// </summary>
 	/// <param name="item">the item to be pushed onto the stack</param>
 	/// <exception cref="FullStackException">thrown when the stack is full</exception>
-	void push(const ItemType& item) noexcept;
+	void push(const ItemType& item);
 
 	/// <summary>
 	/// Pops the top item off the stack.
