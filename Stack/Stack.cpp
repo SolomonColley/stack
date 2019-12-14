@@ -31,6 +31,12 @@ Stack<ItemType>::Stack(const int size)
 } // end parameterized constructor
 
 template<class ItemType>
+Stack<ItemType>::~Stack()
+{
+	delete[] items;
+} // end destructor
+
+template<class ItemType>
 void Stack<ItemType>::push(const ItemType& item)
 {
 	try

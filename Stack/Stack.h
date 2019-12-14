@@ -24,7 +24,7 @@ class Stack : public StackInterface<ItemType>
 private:
 	const int SIZE;
 	int top;
-	ItemType* items;
+	ItemType *items;
 public:
 	/// <summary>
 	/// A parameterized constructor. Initializes this stack with a
@@ -33,6 +33,11 @@ public:
 	/// <param name="size">the size of this stack</param>
 	/// <exception cref="NegativeSizeException">thrown when size is negative</exception>
 	Stack(const int size);
+
+	/// <summary>
+	/// The class destructor. Frees allocated memory.
+	/// </summary>
+	~Stack();
 
 	/// <summary>
 	/// Pushes an item onto the stack.
