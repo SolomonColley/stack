@@ -148,9 +148,9 @@
   <ItemGroup>
     <ClCompile Include="EmptyStackException.cpp" />
     <ClCompile Include="FullStackException.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="NegativeSizeException.cpp" />
     <ClCompile Include="Node.cpp" />
-    <ClCompile Include="Stack.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

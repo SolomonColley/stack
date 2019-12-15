@@ -12,6 +12,7 @@
 #pragma once
 
 #include <iostream>
+#include <string>
 #include "EmptyStackException.h"
 #include "FullStackException.h"
 #include "NegativeSizeException.h"
@@ -71,3 +72,5 @@ public:
 	/// <returns>true if the stack is empty, or false if not</returns>
 	bool isEmpty() const noexcept;
 }; // end Stack
+
+#include "Stack.cpp"

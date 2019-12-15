@@ -11,17 +11,20 @@
 
 #include "Stack.h"
 
+
+
 template<class ItemType>
 Stack<ItemType>::Stack(const int size)
-	: SIZE(size), top(-1)
+	: SIZE(size), top(-1), items(nullptr)
 {
 	try
 	{
 		if (size >= 1)
 			items = new ItemType[SIZE];
 		else
-			throw NegativeSizeException("Stack(const int size) "
-				+ "called with a size (" + std::to_string(size)
+			throw NegativeSizeException(std::string("Stack(const int size) ")
+				+ " called with a size ("
+				+ std::to_string(size)
 				+ ") less than or equal to zero."); // end if-else
 	}
 	catch (const NegativeSizeException & ex)
@@ -34,6 +37,7 @@ template<class ItemType>
 Stack<ItemType>::~Stack()
 {
 	delete[] items;
+	items = nullptr;
 } // end destructor
 
 template<class ItemType>
@@ -47,9 +51,10 @@ void Stack<ItemType>::push(const ItemType& item)
 			items[top] = item;
 		}
 		else
-			throw FullStackException("push(const ItemType& item) "
-				+ "called, but the stack is full at "
-				+ std::to_string(SIZE) + "data items."); // end if-else
+			throw FullStackException(std::string("push(const ItemType& item) ")
+				+ " called, but the stack is full at "
+				+ std::to_string(SIZE)
+				+ " data items."); // end if-else
 	}
 	catch (const FullStackException & ex)
 	{
@@ -64,12 +69,12 @@ void Stack<ItemType>::pop()
 	{
 		if (isEmpty() == false)
 		{
-			items[top] = nullptr;
+			items[top] = NULL;
 			top--;
 		}
 		else
-			throw EmptyStackException("pop() was called, but "
-				+ "the stack is empty."); // end if-else
+			throw EmptyStackException(std::string("pop() was called, ")
+				+ " but the stack is empty."); // end if-else
 	}
 	catch (const EmptyStackException & ex)
 	{
@@ -85,19 +90,21 @@ ItemType Stack<ItemType>::peek() const
 		if (isEmpty() == false)
 			return items[top];
 		else
-			throw EmptyStackException("peek() was called, but "
-				+ "the stack is empty."); // end if-else
+			throw EmptyStackException(std::string("peek() was called, ")
+				+ " but the stack is empty."); // end if-else
 	}
 	catch (const EmptyStackException & ex)
 	{
 		std::cout << ex.what() << std::endl;
 	} // end try-catch
+
+	return NULL;
 } // end peek
 
 template<class ItemType>
 bool Stack<ItemType>::isFull() const noexcept
 {
-	if (top == SIZE)
+	if (top + 1 == SIZE)
 		return true;
 	else
 		return false; // end if-else
