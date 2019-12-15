@@ -16,7 +16,6 @@
 #include "EmptyStackException.h"
 #include "FullStackException.h"
 #include "NegativeSizeException.h"
-#include "Node.h"
 #include "StackInterface.h"
 
 template<class ItemType>

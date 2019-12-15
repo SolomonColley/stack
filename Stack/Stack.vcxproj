@@ -141,7 +141,6 @@
     <ClInclude Include="EmptyStackException.h" />
     <ClInclude Include="FullStackException.h" />
     <ClInclude Include="NegativeSizeException.h" />
-    <ClInclude Include="Node.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackInterface.h" />
   </ItemGroup>
@@ -150,7 +149,6 @@
     <ClCompile Include="FullStackException.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="NegativeSizeException.cpp" />
-    <ClCompile Include="Node.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
