@@ -9,9 +9,6 @@
 
 #pragma once
 
-#include "EmptyStackException.h"
-#include "FullStackException.h"
-
 template<class ItemType>
 class StackInterface
 {
