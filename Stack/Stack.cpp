@@ -11,16 +11,14 @@
 
 #include "Stack.h"
 
-
-
 template<class ItemType>
 Stack<ItemType>::Stack(const int size)
-	: SIZE(size), top(-1), items(nullptr)
+	: MAX_SIZE(size), itemCount(0), top(-1), items(nullptr)
 {
 	try
 	{
 		if (size >= 1)
-			items = new ItemType[SIZE];
+			items = new ItemType[MAX_SIZE];
 		else
 			throw NegativeSizeException(std::string("Stack(const int size) ")
 				+ " called with a size ("
@@ -49,11 +47,12 @@ void Stack<ItemType>::push(const ItemType& item)
 		{
 			top++;
 			items[top] = item;
+			itemCount++;
 		}
 		else
 			throw FullStackException(std::string("push(const ItemType& item) ")
 				+ " called, but the stack is full at "
-				+ std::to_string(SIZE)
+				+ std::to_string(MAX_SIZE)
 				+ " data items."); // end if-else
 	}
 	catch (const FullStackException & ex)
@@ -71,6 +70,7 @@ void Stack<ItemType>::pop()
 		{
 			items[top] = NULL;
 			top--;
+			itemCount--;
 		}
 		else
 			throw EmptyStackException(std::string("pop() was called, ")
@@ -102,9 +102,21 @@ ItemType Stack<ItemType>::peek() const
 } // end peek
 
 template<class ItemType>
+int Stack<ItemType>::size() const noexcept
+{
+	return itemCount;
+} // end size
+
+template<class ItemType>
+int Stack<ItemType>::maxSize() const noexcept
+{
+	return MAX_SIZE;
+} // end maxSize
+
+template<class ItemType>
 bool Stack<ItemType>::isFull() const noexcept
 {
-	if (top + 1 == SIZE)
+	if (top + 1 == MAX_SIZE)
 		return true;
 	else
 		return false; // end if-else

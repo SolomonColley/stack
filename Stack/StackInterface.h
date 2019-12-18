@@ -34,6 +34,18 @@ public:
 	ItemType peek() const;
 
 	/// <summary>
+	/// Gets the current number of data items in the stack.
+	/// </summary>
+	/// <returns>the number of data items in the stack</returns>
+	int size() const noexcept;
+
+	/// <summary>
+	/// Gets the maximum number of data items the stack can hold.
+	/// </summary>
+	/// <returns>the maximum number of data items the stack can hold</returns>
+	int maxSize() const noexcept;
+
+	/// <summary>
 	/// Determines whether the stack is full or not.
 	/// </summary>
 	/// <returns>true if the stack is full, or false if not</returns>

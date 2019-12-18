@@ -22,8 +22,8 @@ template<class ItemType>
 class Stack : public StackInterface<ItemType>
 {
 private:
-	const int SIZE;
-	int top;
+	const int MAX_SIZE;
+	int itemCount, top;
 	ItemType *items;
 public:
 	/// <summary>
@@ -58,6 +58,18 @@ public:
 	/// <returns>the top item in the stack</returns>
 	/// <exception cref="EmptyStackException">thrown when the stack is empty</exception>
 	ItemType peek() const;
+
+	/// <summary>
+	/// Gets the current number of data items in the stack.
+	/// </summary>
+	/// <returns>the number of data items in the stack</returns>
+	int size() const noexcept;
+
+	/// <summary>
+	/// Gets the maximum number of data items the stack can hold.
+	/// </summary>
+	/// <returns>the maximum number of data items the stack can hold</returns>
+	int maxSize() const noexcept;
 
 	/// <summary>
 	/// Determines whether the stack is full or not.
