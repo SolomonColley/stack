@@ -60,6 +60,12 @@ int main()
 	cout << "peeking the top of the stack... should be 2: ";
 	cout << to_string(numbers->peek()) << "\n";
 
+	cout << "\ngetting the stack's maximum size... should be 5: ";
+	cout << to_string(numbers->maxSize()) << "\n";
+
+	cout << "getting the stack's actual size... should be 2: ";
+	cout << to_string(numbers->size()) << "\n";
+
 	cout << "\ndeleting the stack and freeing allocated memory...\n";
 
 	// free up allocated memory and exit successfully
